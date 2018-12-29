@@ -14,8 +14,7 @@ namespace ejemplo
 
 
         SfAutoComplete SfAutoComplete = new SfAutoComplete();
-
-        string[] searchResults;
+        private string[] searchResults= new string[4];
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -41,10 +40,10 @@ namespace ejemplo
             {
                 SearchbooK(SearchBook.Text);
 
-                while (searchResults.Length==4)
-                {
-                    searchResults[searchResults.Length] = SearchBook.Text;
-                }
+
+
+
+
 
             };
 
@@ -52,7 +51,8 @@ namespace ejemplo
             {
                 SearchbooK(SearchBook.Text);
             };
-            SfAutoComplete.DataSource = searchResults;
+
+
 
 
 
@@ -102,6 +102,19 @@ namespace ejemplo
         public async override  void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
+            searchResults[0] = "Mongodb";
+            /*SfAutoComplete.DataSource = searchResults;
+            SfAutoComplete.SuggestionMode = SFAutoCompleteSuggestionMode.SFAutoCompleteSuggestionModeStartsWith;
+
+
+            SfAutoComplete.Watermark= (NSString)"Enter a book name";
+
+
+            SfAutoComplete.MaxDropDownHeight = 90;
+            SfAutoComplete.AutoCompleteMode = SFAutoCompleteAutoCompleteMode.SFAutoCompleteAutoCompleteModeSuggest;
+            SfAutoComplete.PopUpDelay = 100;*/
+
+
             SearchBook.Text = string.Empty;
             var element = new List<BookElement>();
 
@@ -117,7 +130,7 @@ namespace ejemplo
 
 
 
-
+            ///this.Add(SfAutoComplete);
         }
       
 
